@@ -10,9 +10,8 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import model.manufacturer.Brand;
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
-import login.userLogin;
+import ui.login.ManufactureLogin;
 //import font.Product_Sans_Regular;
-
 /**
  *
  * @author shubh
@@ -282,7 +281,7 @@ public class Manufacturer_worker extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        userLogin user = new userLogin();
+        ManufactureLogin user = new ManufactureLogin();
         setVisible(false);
         user.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
