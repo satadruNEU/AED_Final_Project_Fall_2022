@@ -8,6 +8,8 @@ import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import ui.login.ManufactureLogin;
+import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
+import javax.swing.UIManager;
 
 /**
  *
@@ -586,6 +588,12 @@ String phone_id = "";
         //</editor-fold>
 
         /* Create and display the form */
+        try {
+//            product= Font.createFont(Font.TRUETYPE_FONT, new file("Product_Sans_Regular.ttf"));
+            UIManager.setLookAndFeel(new FlatArcDarkOrangeIJTheme());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Manufacturer_head().setVisible(true);
