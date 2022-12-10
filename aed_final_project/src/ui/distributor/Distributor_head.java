@@ -56,7 +56,7 @@ public class Distributor_head extends javax.swing.JFrame {
         cnoTxt = new javax.swing.JTextField();
         pnoTxt = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        viewssBtn = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -70,13 +70,13 @@ public class Distributor_head extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Company Name", "Company Phone No", "Brand Name", "Phone Name", "Availability"
             }
         ));
         jScrollPane2.setViewportView(jTable1);
@@ -96,7 +96,12 @@ public class Distributor_head extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("View");
+        viewssBtn.setText("View");
+        viewssBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewssBtnActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apple", "Samsung" }));
 
@@ -121,7 +126,7 @@ public class Distributor_head extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cnameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
-                                .addComponent(jButton2)
+                                .addComponent(viewssBtn)
                                 .addGap(68, 68, 68))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -141,7 +146,7 @@ public class Distributor_head extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cnameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(viewssBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -298,6 +303,35 @@ public class Distributor_head extends javax.swing.JFrame {
         pnoTxt.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void viewssBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewssBtnActionPerformed
+        // TODO add your handling code here:
+        
+         DefaultTableModel profModel = (DefaultTableModel)jTable1.getModel();
+        profModel.setRowCount(0);
+        
+        try{
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supply_chain_management", "root", "Shubham@1");
+            java.sql.Statement statement = connection.createStatement();
+            String profQuery = "SELECT * FROM supply_chain_management.phone_availibility";
+            java.sql.ResultSet profData = statement.executeQuery(profQuery);
+            
+            while(profData.next()){
+                String brandname = profData.getString("company_name");
+                int cphno = profData.getInt("company_phone_no");
+                String bname = profData.getString("brand_name");
+                String pname = profData.getString("phone_name");
+                String requested = profData.getString("requested_phone");
+               
+                
+                Object tbData[] = {brandname,cphno,bname,pname,requested};
+                
+                profModel.addRow(tbData);
+            }
+         }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
+         }
+    }//GEN-LAST:event_viewssBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -337,7 +371,6 @@ public class Distributor_head extends javax.swing.JFrame {
     private javax.swing.JTextField cnameTxt;
     private javax.swing.JTextField cnoTxt;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -355,5 +388,6 @@ public class Distributor_head extends javax.swing.JFrame {
     private javax.swing.JTextField pnoTxt;
     private javax.swing.JButton viewBtn;
     private javax.swing.JTable views;
+    private javax.swing.JButton viewssBtn;
     // End of variables declaration//GEN-END:variables
 }
