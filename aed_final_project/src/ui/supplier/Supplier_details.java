@@ -222,6 +222,8 @@ public class Supplier_details extends javax.swing.JFrame {
             String profQuery = "SELECT * FROM supply_chain_management.supplier_details";
             java.sql.ResultSet profData = statement.executeQuery(profQuery);
             
+            
+            
             while(profData.next()){
                 int compid = profData.getInt("company_id");
                 String compname = profData.getString("company_name");
@@ -231,7 +233,7 @@ public class Supplier_details extends javax.swing.JFrame {
                 
                 Object tbData[] = {compid,compname,phone,email};
                 
-                profModel.addRow(tbData);
+                profModel.addRow(tbData);    
             }
          }catch(Exception e){
             JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
