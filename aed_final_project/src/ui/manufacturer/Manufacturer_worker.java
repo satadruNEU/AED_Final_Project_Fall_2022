@@ -7,6 +7,7 @@ package ui.manufacturer;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.manufacturer.Brand;
 
 /**
  *
@@ -37,19 +38,19 @@ public class Manufacturer_worker extends javax.swing.JFrame {
     }
     
     
-       public class Stocks{
-        public static void createStocks(String brandname, int price, String phonename, int phone_id){
-            try{
-                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supply_chain_management", "root", "Shubham@1");
-                java.sql.Statement statement = connection.createStatement();
-                
-                statement.executeUpdate("insert into supply_chain_management.stocks" + "(brand_name,phone_name,price,phone_id)" + "values ('"+brandname+"','"+phonename+"', '"+price+"', '"+phone_id+"')");
-                JOptionPane.showMessageDialog(null, "Stocks successfully added!");
-            }catch(Exception e){
-                 JOptionPane.showMessageDialog(null,e);
-            }
-        }
-    }
+//       public class Stocks{
+//        public static void createStocks(String brandname, int price, String phonename, int phone_id){
+//            try{
+//                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supply_chain_management", "root", "Shubham@1");
+//                java.sql.Statement statement = connection.createStatement();
+//                
+//                statement.executeUpdate("insert into supply_chain_management.stocks" + "(brand_name,phone_name,price,phone_id)" + "values ('"+brandname+"','"+phonename+"', '"+price+"', '"+phone_id+"')");
+//                JOptionPane.showMessageDialog(null, "Stocks successfully added!");
+//            }catch(Exception e){
+//                 JOptionPane.showMessageDialog(null,e);
+//            }
+//        }
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -208,13 +209,15 @@ public class Manufacturer_worker extends javax.swing.JFrame {
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         // TODO add your handling code here:
         
-         String brandname = (String) jComboBox1.getSelectedItem();
+         String brandName = (String) jComboBox1.getSelectedItem();
        
         int price = Integer.parseInt(priceTxt.getText());
-        String phonename = pnameTxt.getText();
+        String phoneName = pnameTxt.getText();
         int phone_id = Integer.parseInt(idTxt.getText());
         
-        Stocks.createStocks(brandname, price, phonename, phone_id);
+//        Stocks.createStocks(brandname, price, phonename, phone_id);
+        Brand brand = new Brand(brandName,phoneName,price,phone_id);
+            brand.addBrands();
         
         jComboBox1.setSelectedItem("");
         priceTxt.setText("");
