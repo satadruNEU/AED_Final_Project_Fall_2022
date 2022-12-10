@@ -74,6 +74,7 @@ public class Manufacturer_head extends javax.swing.JFrame {
         submitBtn = new javax.swing.JButton();
         viewBtn = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -115,6 +116,12 @@ public class Manufacturer_head extends javax.swing.JFrame {
         jLabel1.setText("Phone name:");
 
         jLabel3.setText("Status:");
+
+        quantityTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                quantityTxtKeyPressed(evt);
+            }
+        });
 
         jLabel4.setText("Quantity:");
 
@@ -158,12 +165,15 @@ public class Manufacturer_head extends javax.swing.JFrame {
                         .addGap(150, 150, 150)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(submitBtn)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(quantityTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                                .addComponent(pnameTxt)
-                                .addComponent(bnameTxt)
-                                .addComponent(statusTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)))
-                        .addGap(0, 153, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(quantityTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                                    .addComponent(pnameTxt)
+                                    .addComponent(bnameTxt)
+                                    .addComponent(statusTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
+                                .addGap(29, 29, 29)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 14, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
@@ -192,7 +202,8 @@ public class Manufacturer_head extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -557,6 +568,18 @@ String phone_id = "";
         user.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void quantityTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityTxtKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c)){
+            quantityTxt.setEditable(false);
+            jLabel9.setText("Please Enter Number");
+        }else
+        {
+            quantityTxt.setEditable(true);
+        }
+    }//GEN-LAST:event_quantityTxtKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -609,6 +632,7 @@ String phone_id = "";
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
