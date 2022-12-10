@@ -6,8 +6,11 @@ package ui.manufacturer;
 
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import model.manufacturer.Brand;
+import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
+//import font.Product_Sans_Regular;
 
 /**
  *
@@ -18,6 +21,8 @@ public class Manufacturer_worker extends javax.swing.JFrame {
     /**
      * Creates new form worker
      */
+//    Font product;
+    
     public Manufacturer_worker() {
         initComponents();
     }
@@ -264,31 +269,14 @@ public class Manufacturer_worker extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        
+        
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Manufacturer_worker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Manufacturer_worker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Manufacturer_worker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Manufacturer_worker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            product= Font.createFont(Font.TRUETYPE_FONT, new file("Product_Sans_Regular.ttf"));
+            UIManager.setLookAndFeel(new FlatArcDarkOrangeIJTheme());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Manufacturer_worker().setVisible(true);
