@@ -5,6 +5,7 @@
 package ui.retailer;
 
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
+import java.awt.event.KeyEvent;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import java.sql.DriverManager;
@@ -72,6 +73,8 @@ public class Retailor_head extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         orderBtn = new javax.swing.JButton();
         vvBtn = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         views = new javax.swing.JTable();
@@ -91,6 +94,11 @@ public class Retailor_head extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         updateBtn = new javax.swing.JButton();
         deleteBtn = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,6 +124,17 @@ public class Retailor_head extends javax.swing.JFrame {
         distnameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 distnameTxtActionPerformed(evt);
+            }
+        });
+
+        distcontactTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                distcontactTxtActionPerformed(evt);
+            }
+        });
+        distcontactTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                distcontactTxtKeyPressed(evt);
             }
         });
 
@@ -161,7 +180,12 @@ public class Retailor_head extends javax.swing.JFrame {
                     .addComponent(distcontactTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                     .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(vvBtn)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(vvBtn))
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57))
         );
         jPanel1Layout.setVerticalGroup(
@@ -173,18 +197,20 @@ public class Retailor_head extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(distnameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vvBtn))
+                    .addComponent(vvBtn)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(distcontactTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(distcontactTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(orderBtn)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addGap(128, 128, 128))
         );
 
         jTabbedPane1.addTab("distributor", jPanel1);
@@ -234,7 +260,7 @@ public class Retailor_head extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Distributor Details", jPanel2);
@@ -258,6 +284,12 @@ public class Retailor_head extends javax.swing.JFrame {
         jScrollPane3.setViewportView(views5);
 
         jLabel4.setText("Customer ID:");
+
+        cuidTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cuidTxtKeyPressed(evt);
+            }
+        });
 
         jLabel5.setText("Customer Name:");
 
@@ -293,6 +325,8 @@ public class Retailor_head extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setText("jLabel8");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -316,40 +350,66 @@ public class Retailor_head extends javax.swing.JFrame {
                             .addComponent(cunoTxt, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cuemailTxt)
                             .addComponent(cuidTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton1)
-                            .addComponent(updateBtn)
-                            .addComponent(deleteBtn))
-                        .addGap(127, 127, 127))))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(72, 72, 72)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(52, 52, 52))))))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(jButton2)
+                .addGap(69, 69, 69)
+                .addComponent(jButton1)
+                .addGap(69, 69, 69)
+                .addComponent(updateBtn)
+                .addGap(48, 48, 48)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(deleteBtn))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cuidTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cunameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cunoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateBtn))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cuemailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1)
+                    .addComponent(updateBtn)
                     .addComponent(deleteBtn))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
         jTabbedPane1.addTab("CRUD Customers", jPanel3);
@@ -407,7 +467,22 @@ public class Retailor_head extends javax.swing.JFrame {
 
     private void orderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderBtnActionPerformed
         // TODO add your handling code here:
-        
+        if(distnameTxt.getText().trim().isEmpty() && distcontactTxt.getText().trim().isEmpty())
+            { jLabel13.setText("Empty");
+              jLabel14.setText("Empty");
+            }
+
+        else if (distnameTxt.getText().trim().isEmpty())
+           { jLabel13.setText("Empty");
+            }
+
+
+        else if (distcontactTxt.getText().trim().isEmpty())
+            { jLabel14.setText("Empty");
+            }
+
+        else{
+
           
         String distname = distnameTxt.getText();
         int distcontact = Integer.parseInt(distcontactTxt.getText());
@@ -418,7 +493,7 @@ public class Retailor_head extends javax.swing.JFrame {
         distnameTxt.setText("");
         distcontactTxt.setText("");
         jComboBox1.setSelectedItem("");
-       
+        }
     }//GEN-LAST:event_orderBtnActionPerformed
 
     private void vvBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vvBtnActionPerformed
@@ -452,6 +527,33 @@ public class Retailor_head extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+
+        if(cuidTxt.getText().trim().isEmpty() && cunameTxt.getText().trim().isEmpty() && cunoTxt.getText().trim().isEmpty() && cuemailTxt.getText().trim().isEmpty())
+        { jLabel9.setText("Empty");
+          jLabel10.setText("Empty");
+          jLabel11.setText("Empty");
+          jLabel12.setText("Empty");
+        }
+
+        else if (cuidTxt.getText().trim().isEmpty())
+        { jLabel9.setText("Empty");
+        }
+         
+         else if (cunameTxt.getText().trim().isEmpty())
+        { jLabel10.setText("Empty");
+        }
+         
+         else if (cunoTxt.getText().trim().isEmpty())
+        { jLabel11.setText("Empty");
+        }
+
+        else if (cuemailTxt.getText().trim().isEmpty())
+        { jLabel12.setText("Empty");
+        }
+
+        else
+        {
 
         int cusid = Integer.parseInt(cuidTxt.getText());
         String cusname = cunameTxt.getText();
@@ -464,6 +566,7 @@ public class Retailor_head extends javax.swing.JFrame {
         cunameTxt.setText("");
         cunoTxt.setText("");
         cuemailTxt.setText("");
+}
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -567,6 +670,47 @@ String cusid = "";
         
     }//GEN-LAST:event_deleteBtnActionPerformed
 
+    private void distcontactTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_distcontactTxtKeyPressed
+        // TODO add your handling code here:
+        String phoneNumber = distcontactTxt.getText();
+        int length = phoneNumber.length();
+        
+        char c = evt.getKeyChar();
+        
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(length<10){
+                distcontactTxt.setEditable(true);
+            }else
+            {
+                distcontactTxt.setEditable(false);
+            }
+        }
+//        else
+//        {
+//            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE ){
+//                distcontactTxt.setEditable(true);
+//            }else{
+//                distcontactTxt.setEditable(false);
+//            }
+//        }
+
+    }//GEN-LAST:event_distcontactTxtKeyPressed
+
+    private void cuidTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cuidTxtKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c))
+            {cuidTxt.setEditable(false);
+            jLabel9.setText("Enter Valid Digits");}
+        else  
+        {cuidTxt.setEditable(true);}
+
+    }//GEN-LAST:event_cuidTxtKeyPressed
+
+    private void distcontactTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_distcontactTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_distcontactTxtActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -620,12 +764,19 @@ String cusid = "";
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
