@@ -39,13 +39,27 @@ public class Distributor_head extends javax.swing.JFrame {
     
     
     public class Cdetails{
-        public static void createCdetails(int cityId, String cityName, String cityState){
+        public static void createCdetails(String dname,int contact,int cityId, String cityName, String cityState){
             try{
                 java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supply_chain_management", "root", "Shubham@1");
                 java.sql.Statement statement = connection.createStatement();
                 
-                statement.executeUpdate("insert into supply_chain_management.city_details" + "(city_id,city_name,state)" + "values ('"+cityId+"','"+cityName+"', '"+cityState+"')");
+                statement.executeUpdate("insert into supply_chain_management.city_details" + "(dist_name,dist_contact,city_id,city_name,state)" + "values ('"+dname+"','"+contact+"','"+cityId+"','"+cityName+"', '"+cityState+"')");
                 JOptionPane.showMessageDialog(null, "City successfully added!");
+            }catch(Exception e){
+                 JOptionPane.showMessageDialog(null,e);
+            }
+        }
+    }
+    
+    public class Deldetails{
+        public static void createDeldetails(String distname,int distcontact,String brandname, int delivery){
+            try{
+                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supply_chain_management", "root", "Shubham@1");
+                java.sql.Statement statement = connection.createStatement();
+                
+                statement.executeUpdate("insert into supply_chain_management.order_confirmation" + "(dist_name,dist_contact,brand_name,delivery_date)" + "values ('"+distname+"','"+distcontact+"','"+brandname+"','"+delivery+"')");
+                JOptionPane.showMessageDialog(null, "Order will be delivered!");
             }catch(Exception e){
                  JOptionPane.showMessageDialog(null,e);
             }
@@ -83,20 +97,37 @@ public class Distributor_head extends javax.swing.JFrame {
         views = new javax.swing.JTable();
         viewBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        views3 = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        dinTxt = new javax.swing.JTextField();
+        delTxt = new javax.swing.JTextField();
+        dicTxt = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        brnTxt = new javax.swing.JTextField();
+        createeBtn = new javax.swing.JButton();
+        vBtn = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        views2 = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         cityidTxt = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         citynameTxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         stateTxt = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        createBtn = new javax.swing.JButton();
+        updateBtn = new javax.swing.JButton();
+        viewsBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        views1 = new javax.swing.JTable();
+        jLabel13 = new javax.swing.JLabel();
+        contactTxt = new javax.swing.JTextField();
+        dnameTxt = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,7 +139,7 @@ public class Distributor_head extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Company Name", "Company Phone No", "Brand Name", "Phone Name", "Availability"
+                "Company Name", "Company Phone No", "Brand Name", "Product Name", "Availability"
             }
         ));
         jScrollPane2.setViewportView(jTable1);
@@ -117,11 +148,11 @@ public class Distributor_head extends javax.swing.JFrame {
 
         jLabel3.setText("Company phone no:");
 
-        jLabel4.setText("Phone name:");
+        jLabel4.setText("Product name:");
 
         jLabel5.setText("Brand name:");
 
-        jButton1.setText("Request Phone");
+        jButton1.setText("Product Request");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -135,7 +166,7 @@ public class Distributor_head extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apple", "Samsung" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apple,apple w", "Samsung.samsung 2" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -157,15 +188,17 @@ public class Distributor_head extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cnameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                                 .addComponent(viewssBtn)
                                 .addGap(68, 68, 68))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cnoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                                     .addComponent(pnoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                    .addComponent(jButton1)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(19, 19, 19)
+                                        .addComponent(jButton1)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -193,7 +226,7 @@ public class Distributor_head extends javax.swing.JFrame {
                     .addComponent(pnoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("message req", jPanel1);
@@ -229,7 +262,7 @@ public class Distributor_head extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -246,29 +279,12 @@ public class Distributor_head extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(viewBtn)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("supplier details", jPanel2);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 706, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Retailor", jPanel3);
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("City Details");
-
-        views2.setModel(new javax.swing.table.DefaultTableModel(
+        views3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -276,18 +292,139 @@ public class Distributor_head extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "City ID", "City Name", "State"
+                "Distributor Name", "Distributor Contact", "Brand Name"
             }
         ));
-        views2.addMouseListener(new java.awt.event.MouseAdapter() {
+        views3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                views2MouseClicked(evt);
+                views3MouseClicked(evt);
             }
         });
-        jScrollPane4.setViewportView(views2);
+        jScrollPane5.setViewportView(views3);
+
+        jLabel7.setText("Distributor Name:");
+
+        jLabel8.setText("Date of Delivery:");
+
+        jLabel9.setText("Distributor Contact:");
+
+        dinTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dinTxtActionPerformed(evt);
+            }
+        });
+
+        dicTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dicTxtActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Brand Name:");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(dinTxt)
+                    .addComponent(delTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                    .addComponent(dicTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                    .addComponent(brnTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dinTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dicTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(brnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(delTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(95, Short.MAX_VALUE))
+        );
+
+        createeBtn.setText("Submit");
+        createeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createeBtnActionPerformed(evt);
+            }
+        });
+
+        vBtn.setText("View");
+        vBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(333, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(createeBtn)
+                        .addGap(310, 310, 310))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(vBtn)
+                        .addGap(50, 50, 50))))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 8, Short.MAX_VALUE)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(vBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+                .addComponent(createeBtn)
+                .addGap(70, 70, 70))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Retailor", jPanel3);
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Distributor Details");
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel11.setText("City ID:");
+        jLabel11.setText("Distributor Contact No:");
 
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel12.setText("City Name:");
@@ -301,80 +438,120 @@ public class Distributor_head extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel6.setText("State:");
 
-        jButton6.setText("Create");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        createBtn.setText("Create");
+        createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                createBtnActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Update");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        updateBtn.setText("Update");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                updateBtnActionPerformed(evt);
             }
         });
 
-        jButton8.setText("View");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        viewsBtn.setText("View");
+        viewsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                viewsBtnActionPerformed(evt);
             }
         });
 
-        jButton9.setText("Delete");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        deleteBtn.setText("Delete");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                deleteBtnActionPerformed(evt);
             }
         });
+
+        views1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Distributor Name", "Distributor Contact No", "City Zip Code", "City Name", "State"
+            }
+        ));
+        views1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                views1MouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(views1);
+
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel13.setText("City Zip Code:");
+
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel14.setText("Distributor Name:");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(createBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(viewsBtn)
+                        .addGap(103, 103, 103))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(73, 73, 73)))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(dnameTxt)
+                    .addComponent(cityidTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(citynameTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(stateTxt, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jButton6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton8))
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cityidTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(citynameTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(stateTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jButton7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                                .addComponent(jButton9)))
-                        .addGap(124, 124, 124))))
+                        .addComponent(updateBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addComponent(deleteBtn))
+                    .addComponent(contactTxt))
+                .addGap(0, 174, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(dnameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(contactTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(cityidTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cityidTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
@@ -385,14 +562,14 @@ public class Distributor_head extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton9)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
-                .addGap(76, 76, 76))
+                    .addComponent(createBtn)
+                    .addComponent(deleteBtn)
+                    .addComponent(updateBtn)
+                    .addComponent(viewsBtn))
+                .addGap(22, 22, 22))
         );
 
-        jTabbedPane1.addTab("City Details", jPanel5);
+        jTabbedPane1.addTab("Distributor Details", jPanel5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -485,24 +662,29 @@ public class Distributor_head extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_citynameTxtActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         // TODO add your handling code here:
         
+     
+         String dname = dnameTxt.getText();
+         int contact = Integer.parseInt(contactTxt.getText());
          int cityId = Integer.parseInt(cityidTxt.getText());
         String cityName = citynameTxt.getText();
         String cityState = stateTxt.getText();
       
-        Cdetails.createCdetails(cityId,cityName, cityState);
+        Cdetails.createCdetails(dname,contact,cityId,cityName, cityState);
         
+          dnameTxt.setText("");
+          contactTxt.setText("");
          cityidTxt.setText("");
         citynameTxt.setText("");
         stateTxt.setText("");
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_createBtnActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void viewsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewsBtnActionPerformed
         // TODO add your handling code here:
         
-         DefaultTableModel profModel = (DefaultTableModel)views2.getModel();
+         DefaultTableModel profModel = (DefaultTableModel)views1.getModel();
         profModel.setRowCount(0);
         
         try{
@@ -514,72 +696,52 @@ public class Distributor_head extends javax.swing.JFrame {
             
             
             while(profData.next()){
+                
+                 String dname = profData.getString("dist_name");
+                 int contact = profData.getInt("dist_contact");
                 int cityid = profData.getInt("city_id");
                 String cityname = profData.getString("city_name");
                 String state = profData.getString("state");
               
                
                 
-                Object tbData[] = {cityid,cityname,state};
+                Object tbData[] = {dname,contact,cityid,cityname,state};
                 
                 profModel.addRow(tbData);    
             }
          }catch(Exception e){
             JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
          }
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_viewsBtnActionPerformed
        String city_id = "";
-    private void views2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_views2MouseClicked
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
         // TODO add your handling code here:
         
-        DefaultTableModel profModel = (DefaultTableModel)views2.getModel();
-//        String brandTxt = views1.getValueAt(views1.getSelectedRow(), 0).toString();
-        cityidTxt.setText(views2.getValueAt(views2.getSelectedRow(), 0).toString());  
-        citynameTxt.setText(views2.getValueAt(views2.getSelectedRow(), 1).toString());
-        stateTxt.setText(views2.getValueAt(views2.getSelectedRow(), 2).toString());
-        city_id = views2.getValueAt(views2.getSelectedRow(), 0).toString();
-        
-//        compid = views2.getValueAt(views2.getSelectedRow(), 0).toString();
-        
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supply_chain_management", "root", "Shubham@1");
-            java.sql.Statement statement = connection.createStatement();
-            String profQuery = "SELECT * FROM supply_chain_management.supplier_details";
-            java.sql.ResultSet profData = statement.executeQuery(profQuery);
-//            while(profData.next()){
-//                modelName = profData.getString("model_name");
-//            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-         }
-    }//GEN-LAST:event_views2MouseClicked
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        
-        DefaultTableModel studModel = (DefaultTableModel)views2.getModel();
+        DefaultTableModel studModel = (DefaultTableModel)views1.getModel();
         studModel.setRowCount(0);
         
+        String dname = dnameTxt.getText();
+         int contact = Integer.parseInt(contactTxt.getText());
         int cityid = Integer.parseInt(cityidTxt.getText());
         String cityname = citynameTxt.getText();
         String citystate = stateTxt.getText();
         
         if(cityname.isEmpty()){
-            JOptionPane.showMessageDialog(null,"Student name is empty");
+            JOptionPane.showMessageDialog(null,"City name is empty");
         }else{
             try{
                 java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supply_chain_management", "root", "Shubham@1");
                 java.sql.Statement statement = connection.createStatement();
-                String profQuery = "UPDATE supply_chain_management.city_details SET city_id = '"+cityid+"', city_name = '"+cityname+"', state = '"+citystate+"' WHERE city_id = '"+cityid+"'";
+                String profQuery = "UPDATE supply_chain_management.city_details SET dist_name = '"+dname+"', dist_contact = '"+contact+"', city_id = '"+cityid+"', city_name = '"+cityname+"', state = '"+citystate+"' WHERE city_id = '"+cityid+"'";
                 statement.executeUpdate(profQuery);
                 JOptionPane.showMessageDialog(null,"Updated successfully");
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,e);
             }
         }
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_updateBtnActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         // TODO add your handling code here:
         
           try{
@@ -593,11 +755,116 @@ public class Distributor_head extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }
         
+        dnameTxt.setText("");
+        contactTxt.setText("");
         cityidTxt.setText("");
         citynameTxt.setText("");
         stateTxt.setText("");
         
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void views1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_views1MouseClicked
+        // TODO add your handling code here:
+        
+         DefaultTableModel profModel = (DefaultTableModel)views1.getModel();
+//        String brandTxt = views1.getValueAt(views1.getSelectedRow(), 0).toString();
+        dnameTxt.setText(views1.getValueAt(views1.getSelectedRow(), 0).toString());  
+        contactTxt.setText(views1.getValueAt(views1.getSelectedRow(), 1).toString());
+        cityidTxt.setText(views1.getValueAt(views1.getSelectedRow(), 2).toString());
+        citynameTxt.setText(views1.getValueAt(views1.getSelectedRow(), 3).toString());
+        stateTxt.setText(views1.getValueAt(views1.getSelectedRow(), 4).toString());
+        
+        city_id = views1.getValueAt(views1.getSelectedRow(), 2).toString();
+        
+        try{
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supply_chain_management", "root", "Shubham@1");
+            java.sql.Statement statement = connection.createStatement();
+            String profQuery = "SELECT * FROM supply_chain_management.city_details";
+            java.sql.ResultSet profData = statement.executeQuery(profQuery);
+//            while(profData.next()){
+//                modelName = profData.getString("model_name");
+//            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+         }
+    }//GEN-LAST:event_views1MouseClicked
+
+    private void dinTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dinTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dinTxtActionPerformed
+
+    private void dicTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dicTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dicTxtActionPerformed
+
+    private void vBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vBtnActionPerformed
+        // TODO add your handling code here:
+        
+          DefaultTableModel profModel = (DefaultTableModel)views3.getModel();
+        profModel.setRowCount(0);
+        
+        try{
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supply_chain_management", "root", "Shubham@1");
+            java.sql.Statement statement = connection.createStatement();
+            String profQuery = "SELECT * FROM supply_chain_management.retailer";
+            java.sql.ResultSet profData = statement.executeQuery(profQuery);
+            
+            while(profData.next()){
+                String distname = profData.getString("dist_name");
+                int distcontact = profData.getInt("dist_contact");
+                String brandname = profData.getString("brand_name");
+               
+                
+                Object tbData[] = {distname,distcontact,brandname};
+                
+                profModel.addRow(tbData);
+            }
+         }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
+         }
+    }//GEN-LAST:event_vBtnActionPerformed
+
+    private void views3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_views3MouseClicked
+        // TODO add your handling code here:
+        
+         DefaultTableModel profModel = (DefaultTableModel)views3.getModel();
+//        String brandTxt = views2.getValueAt(views2.getSelectedRow(), 0).toString();
+        dinTxt.setText(views3.getValueAt(views3.getSelectedRow(), 0).toString());  
+        dicTxt.setText(views3.getValueAt(views3.getSelectedRow(), 1).toString());
+        brnTxt.setText(views3.getValueAt(views3.getSelectedRow(), 2).toString());
+    
+//        reqPhoneTxt.setSelectedItem(views2.getValueAt(views2.getSelectedRow(), 4).toString());
+
+//        phone_id = views2.getValueAt(views2.getSelectedRow(), 3).toString();
+        
+        try{
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supply_chain_management", "root", "Shubham@1");
+            java.sql.Statement statement = connection.createStatement();
+            String profQuery = "SELECT * FROM supply_chain_management.retailer";
+            java.sql.ResultSet profData = statement.executeQuery(profQuery);
+//            while(profData.next()){
+//                modelName = profData.getString("model_name");
+//            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+         }
+    }//GEN-LAST:event_views3MouseClicked
+
+    private void createeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createeBtnActionPerformed
+        // TODO add your handling code here:
+       
+        String distname = dinTxt.getText();
+        int distcontact = Integer.parseInt(dicTxt.getText());
+        String brandname = brnTxt.getText();
+        int delivery = Integer.parseInt(delTxt.getText());
+
+       Deldetails.createDeldetails(distname,distcontact,brandname,delivery);
+
+        dinTxt.setText("");
+        dicTxt.setText("");
+        brnTxt.setText("");
+        delTxt.setText("");
+    }//GEN-LAST:event_createeBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -641,39 +908,56 @@ public class Distributor_head extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField brnTxt;
     private javax.swing.JTextField cityidTxt;
     private javax.swing.JTextField citynameTxt;
     private javax.swing.JTextField cnameTxt;
     private javax.swing.JTextField cnoTxt;
+    private javax.swing.JTextField contactTxt;
+    private javax.swing.JButton createBtn;
+    private javax.swing.JButton createeBtn;
+    private javax.swing.JTextField delTxt;
+    private javax.swing.JButton deleteBtn;
+    private javax.swing.JTextField dicTxt;
+    private javax.swing.JTextField dinTxt;
+    private javax.swing.JTextField dnameTxt;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField pnoTxt;
     private javax.swing.JTextField stateTxt;
+    private javax.swing.JButton updateBtn;
+    private javax.swing.JButton vBtn;
     private javax.swing.JButton viewBtn;
     private javax.swing.JTable views;
-    private javax.swing.JTable views2;
+    private javax.swing.JTable views1;
+    private javax.swing.JTable views3;
+    private javax.swing.JButton viewsBtn;
     private javax.swing.JButton viewssBtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,12 +39,12 @@ public class Manufacturer_head extends javax.swing.JFrame {
     }
       
       public class Stocks{
-        public static void createStocks(String brandname, int price, String phonename){
+        public static void createStocks(String brandname, int price, String phonename, int phone_id){
             try{
                 java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supply_chain_management", "root", "Shubham@1");
                 java.sql.Statement statement = connection.createStatement();
                 
-                statement.executeUpdate("insert into supply_chain_management.stocks" + "(brand_name,phone_name,price)" + "values ('"+brandname+"','"+phonename+"', '"+price+"')");
+                statement.executeUpdate("insert into supply_chain_management.stocks" + "(brand_name,phone_name,price,phone_id)" + "values ('"+brandname+"','"+phonename+"', '"+price+"','"+phone_id+"')");
                 JOptionPane.showMessageDialog(null, "Stocks successfully added!");
             }catch(Exception e){
                  JOptionPane.showMessageDialog(null,e);
@@ -102,7 +102,7 @@ public class Manufacturer_head extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Brand Name", "Phone name", "Quantity"
+                "Brand Name", "Product Name", "Quantity"
             }
         ));
         view.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,9 +114,15 @@ public class Manufacturer_head extends javax.swing.JFrame {
 
         jLabel2.setText("Brand Name:");
 
-        jLabel1.setText("Phone name:");
+        jLabel1.setText("Product name:");
+
+        pnameTxt.setEnabled(false);
 
         jLabel3.setText("Status:");
+
+        quantityTxt.setEnabled(false);
+
+        bnameTxt.setEnabled(false);
 
         jLabel4.setText("Quantity:");
 
@@ -208,9 +214,9 @@ public class Manufacturer_head extends javax.swing.JFrame {
 
         jLabel5.setText("Brand Name:");
 
-        jLabel6.setText("Phone name:");
+        jLabel6.setText("Product Name:");
 
-        jLabel7.setText("Phone id:");
+        jLabel7.setText("Product ID:");
 
         createBtn.setText("Create");
         createBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -248,7 +254,7 @@ public class Manufacturer_head extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Brand Name", "Phone Name", "Price", "Phone id"
+                "Brand Name", "Product Name", "Price", "Product Id"
             }
         ));
         views.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -264,7 +270,6 @@ public class Manufacturer_head extends javax.swing.JFrame {
             }
         });
 
-        brandnameTxt.setEnabled(false);
         brandnameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 brandnameTxtActionPerformed(evt);
@@ -485,12 +490,14 @@ public class Manufacturer_head extends javax.swing.JFrame {
 
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
 //        // TODO add your handling code here:
-            String brandname = brandnameTxt.getText();
+
+        String brandname = brandnameTxt.getText();
         int price = Integer.parseInt(priceTxt.getText());
         String phonename = phonenameTxt.getText();
-        String phone_id = idTxt.getText();
+        int phone_id = Integer.parseInt(idTxt.getText());
         
-        Stocks.createStocks(brandname, price, phonename);
+        
+        Stocks.createStocks(brandname, price, phonename, phone_id);
         
        brandnameTxt.setText("");
         priceTxt.setText("");

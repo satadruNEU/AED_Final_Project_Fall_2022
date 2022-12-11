@@ -135,12 +135,12 @@ public class supplier_head extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Brand Name", "Phone Name", "Quantity", "Status"
+                "Brand Name", "Product Name", "Quantity", "Status"
             }
         ));
         jScrollPane1.setViewportView(view);
 
-        jLabel1.setText("Phone name:");
+        jLabel1.setText("Product name:");
 
         jLabel2.setText("Brand Name:");
 
@@ -225,7 +225,7 @@ public class supplier_head extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Brand Name", "Phone Name", "Price", "Phone ID"
+                "Brand Name", "Product Name", "Price", "Product ID"
             }
         ));
         jScrollPane2.setViewportView(views);
@@ -270,7 +270,7 @@ public class supplier_head extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Company Name", "Company Phone No", "Brand Name", "Phone Name"
+                "Company Name", "Company Phone No", "Brand Name", "Product Name"
             }
         ));
         views2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -293,9 +293,9 @@ public class supplier_head extends javax.swing.JFrame {
 
         jLabel11.setText("Company Phone No:");
 
-        jLabel12.setText("Requested Phone:");
+        jLabel12.setText("Requested Product:");
 
-        jLabel13.setText("Phone Name:");
+        jLabel13.setText("Product Name:");
 
         reqPhoneTxt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Unavailable" }));
 

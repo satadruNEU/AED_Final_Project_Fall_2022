@@ -14,22 +14,22 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author shubh
  */
-public class Distributor_city extends javax.swing.JFrame {
+public class Distributor_details extends javax.swing.JFrame {
 
     /**
      * Creates new form Distributor_city
      */
-    public Distributor_city() {
+    public Distributor_details() {
         initComponents();
     }
     
     public class Cdetails{
-        public static void createCdetails(int cityId, String cityName, String cityState){
+        public static void createCdetails(String dname,int contact,int cityId, String cityName, String cityState){
             try{
                 java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supply_chain_management", "root", "Shubham@1");
                 java.sql.Statement statement = connection.createStatement();
                 
-                statement.executeUpdate("insert into supply_chain_management.city_details" + "(city_id,city_name,state)" + "values ('"+cityId+"','"+cityName+"', '"+cityState+"')");
+                statement.executeUpdate("insert into supply_chain_management.city_details" + "(dist_name,dist_contact,city_id,city_name,state)" + "values ('"+dname+"','"+contact+"','"+cityId+"','"+cityName+"', '"+cityState+"')");
                 JOptionPane.showMessageDialog(null, "City successfully added!");
             }catch(Exception e){
                  JOptionPane.showMessageDialog(null,e);
@@ -58,20 +58,29 @@ public class Distributor_city extends javax.swing.JFrame {
         createBtn = new javax.swing.JButton();
         viewBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        contactTxt = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        dnameTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         views.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "City ID", "City Name", "State"
+                "Distributor Name", "Distributor Contact No", "City ID", "City Name", "State"
             }
         ));
+        views.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewsMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(views);
 
         jLabel4.setText("City ID:");
@@ -102,39 +111,45 @@ public class Distributor_city extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("City Details");
+        jLabel1.setText("Distributor Details");
+
+        jLabel5.setText("Contact No:");
+
+        jLabel7.setText("Distributor Name:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(createBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                                .addComponent(viewBtn))
-                            .addComponent(citynameTxt)
-                            .addComponent(stateTxt)
-                            .addComponent(cityidTxt))
-                        .addGap(168, 168, 168))))
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(115, 115, 115)
+                .addGap(126, 126, 126)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dnameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contactTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(createBtn)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(viewBtn))
+                                .addComponent(citynameTxt)
+                                .addComponent(stateTxt)
+                                .addComponent(cityidTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +157,15 @@ public class Distributor_city extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(dnameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(contactTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(cityidTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -158,7 +181,7 @@ public class Distributor_city extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createBtn)
                     .addComponent(viewBtn))
-                .addGap(78, 78, 78))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -183,13 +206,16 @@ public class Distributor_city extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-        
+         String dname = dnameTxt.getText();
+         int contact = Integer.parseInt(contactTxt.getText());
          int cityId = Integer.parseInt(cityidTxt.getText());
         String cityName = citynameTxt.getText();
         String cityState = stateTxt.getText();
       
-        Cdetails.createCdetails(cityId,cityName, cityState);
+        Cdetails.createCdetails(dname,contact,cityId,cityName, cityState);
         
+          dnameTxt.setText("");
+          contactTxt.setText("");
          cityidTxt.setText("");
         citynameTxt.setText("");
         stateTxt.setText("");
@@ -211,13 +237,16 @@ public class Distributor_city extends javax.swing.JFrame {
             
             
             while(profData.next()){
+                
+                 String dname = profData.getString("dist_name");
+                 int contact = profData.getInt("dist_contact");
                 int cityid = profData.getInt("city_id");
                 String cityname = profData.getString("city_name");
                 String state = profData.getString("state");
               
                
                 
-                Object tbData[] = {cityid,cityname,state};
+                Object tbData[] = {dname,contact,cityid,cityname,state};
                 
                 profModel.addRow(tbData);    
             }
@@ -225,6 +254,10 @@ public class Distributor_city extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
          }
     }//GEN-LAST:event_viewBtnActionPerformed
+
+    private void viewsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewsMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -243,14 +276,15 @@ public class Distributor_city extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Distributor_city.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Distributor_details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Distributor_city.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Distributor_details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Distributor_city.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Distributor_details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Distributor_city.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Distributor_details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -262,7 +296,7 @@ public class Distributor_city extends javax.swing.JFrame {
         }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Distributor_city().setVisible(true);
+                new Distributor_details().setVisible(true);
             }
         });
     }
@@ -270,11 +304,15 @@ public class Distributor_city extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cityidTxt;
     private javax.swing.JTextField citynameTxt;
+    private javax.swing.JTextField contactTxt;
     private javax.swing.JButton createBtn;
+    private javax.swing.JTextField dnameTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField stateTxt;

@@ -104,12 +104,12 @@ public class Manufacturer_worker extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Brand Name", "Phone Name", "Price", "Phone ID"
+                "Brand Name", "Product Name", "Price", "Product ID"
             }
         ));
         jScrollPane2.setViewportView(views);
 
-        jLabel2.setText("Phone Name:");
+        jLabel2.setText("Product Name:");
 
         jLabel4.setText("Brand Name:");
 
@@ -229,7 +229,6 @@ public class Manufacturer_worker extends javax.swing.JFrame {
         // TODO add your handling code here:
         
          String brandName = (String) jComboBox1.getSelectedItem();
-       
         int price = Integer.parseInt(priceTxt.getText());
         String phoneName = pnameTxt.getText();
         int phone_id = Integer.parseInt(idTxt.getText());
@@ -241,7 +240,7 @@ public class Manufacturer_worker extends javax.swing.JFrame {
         jComboBox1.setSelectedItem("");
         priceTxt.setText("");
         pnameTxt.setText("");
-        
+        idTxt.setText("");        
         
     }//GEN-LAST:event_createBtnActionPerformed
 
