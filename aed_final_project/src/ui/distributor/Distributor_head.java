@@ -323,7 +323,7 @@ public class Distributor_head extends javax.swing.JFrame {
                 String requested = profData.getString("requested_phone");
                
                 
-                Object tbData[] = {brandname,cphno,bname,pname};
+                Object tbData[] = {brandname,cphno,bname,pname,requested};
                 
                 profModel.addRow(tbData);
             }

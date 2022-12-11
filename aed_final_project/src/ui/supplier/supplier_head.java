@@ -103,7 +103,7 @@ public class supplier_head extends javax.swing.JFrame {
         companynameTxt = new javax.swing.JTextField();
         brandnameTxt = new javax.swing.JTextField();
         phonenameTxt = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        reqPhoneTxt = new javax.swing.JComboBox<>();
         submitBtn = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -295,7 +295,7 @@ public class supplier_head extends javax.swing.JFrame {
 
         jLabel13.setText("Phone Name:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Unavailable" }));
+        reqPhoneTxt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Unavailable" }));
 
         submitBtn.setText("Submit");
         submitBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -332,7 +332,7 @@ public class supplier_head extends javax.swing.JFrame {
                                 .addComponent(phonenameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(brandnameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(companynameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(reqPhoneTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                         .addComponent(viewwBtn)
                         .addGap(48, 48, 48))))
@@ -363,7 +363,7 @@ public class supplier_head extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(reqPhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(submitBtn)
                 .addContainerGap(57, Short.MAX_VALUE))
@@ -439,21 +439,18 @@ public class supplier_head extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(emailTxt)
-                                    .addComponent(phoneTxt)
-                                    .addComponent(cnameTxt)
-                                    .addComponent(cidTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(emailTxt)
+                            .addComponent(phoneTxt)
+                            .addComponent(cnameTxt)
+                            .addComponent(cidTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(55, 55, 55)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(createBtn)
@@ -744,6 +741,8 @@ String compid = "";
         CompnoTxt.setText(views2.getValueAt(views2.getSelectedRow(), 1).toString());
         brandnameTxt.setText(views2.getValueAt(views2.getSelectedRow(), 2).toString());
         phonenameTxt.setText(views2.getValueAt(views2.getSelectedRow(), 3).toString());
+        reqPhoneTxt.setSelectedItem(views2.getValueAt(views2.getSelectedRow(), 4).toString());
+
 //        phone_id = views2.getValueAt(views2.getSelectedRow(), 3).toString();
         
         try{
@@ -766,7 +765,7 @@ String compid = "";
         int companypno = Integer.parseInt(CompnoTxt.getText());
         String brandname = brandnameTxt.getText();
         String phonename = phonenameTxt.getText();
-        String availibility = (String) jComboBox1.getSelectedItem();
+        String availibility = (String) reqPhoneTxt.getSelectedItem();
       
         
         Phone.createPhone(companyname, companypno, brandname,phonename,availibility);
@@ -775,7 +774,7 @@ String compid = "";
         CompnoTxt.setText("");
         brandnameTxt.setText("");
         phonenameTxt.setText("");
-         jComboBox1.setSelectedItem("");
+         reqPhoneTxt.setSelectedItem("");
         
         
     }//GEN-LAST:event_submitBtnActionPerformed
@@ -827,7 +826,6 @@ String compid = "";
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -855,6 +853,7 @@ String compid = "";
     private javax.swing.JTextField phonenameTxt;
     private javax.swing.JTextField pnameTxt;
     private javax.swing.JTextField quantityTxt;
+    private javax.swing.JComboBox<String> reqPhoneTxt;
     private javax.swing.JButton requestedBtn;
     private javax.swing.JButton submitBtn;
     private javax.swing.JButton updateBtn;
