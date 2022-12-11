@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import ui.manufacturer.Manufacturer_head;
 import ui.manufacturer.Manufacturer_worker;
+import ui.onboarding.EnterEnterprise;
 
 /**
  *
@@ -32,25 +33,43 @@ public class ManufactureLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         usernameTxt = new javax.swing.JTextField();
-        passwordTxt = new javax.swing.JTextField();
         roleTxt = new javax.swing.JComboBox<>();
         loginBtn = new javax.swing.JButton();
+        passwordTxt = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 500));
+        setMinimumSize(new java.awt.Dimension(800, 500));
+        setPreferredSize(new java.awt.Dimension(800, 500));
+        setResizable(false);
+        setSize(new java.awt.Dimension(800, 500));
 
-        jLabel1.setText("username");
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/illustration3login.png"))); // NOI18N
 
-        jLabel2.setText("password");
+        jLabel3.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        jLabel3.setText("Role:");
 
-        jLabel3.setText("Role");
+        usernameTxt.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
 
-        roleTxt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Worker", "ManufactureAdmin" }));
+        roleTxt.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        roleTxt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manufacturer Admin", "Worker" }));
+        roleTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roleTxtActionPerformed(evt);
+            }
+        });
 
+        loginBtn.setBackground(new java.awt.Color(252, 255, 99));
+        loginBtn.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(51, 51, 51));
         loginBtn.setText("Login");
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +77,26 @@ public class ManufactureLogin extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Logout");
+        passwordTxt.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Product Sans", 1, 40)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Login");
+
+        jLabel1.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        jLabel1.setText("Username:");
+
+        jLabel5.setFont(new java.awt.Font("Product Sans", 0, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Manufacturer");
+
+        jLabel2.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        jLabel2.setText("Password:");
+
+        jButton1.setBackground(new java.awt.Color(255, 128, 101));
+        jButton1.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -70,63 +108,82 @@ public class ManufactureLogin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(207, 207, 207)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(84, 84, 84)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(passwordTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                            .addComponent(usernameTxt)
-                            .addComponent(roleTxt, 0, 0, Short.MAX_VALUE)))
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(loginBtn)))
-                .addContainerGap(142, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(44, 44, 44))
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel3)))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(roleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(loginBtn)
-                .addContainerGap(97, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel2)
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(roleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void roleTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roleTxtActionPerformed
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
         String role = roleTxt.getSelectedItem().toString();
         String username = usernameTxt.getText();
         String password = passwordTxt.getText();
-        
-         if(role.equals("Worker")){
+
+        if(role.equals("Manufacturer Admin")){
             if(username.equals("root") && password.equals("root")){
-                Manufacturer_worker worker = new Manufacturer_worker();
+                Manufacturer_head rh = new Manufacturer_head();
                 setVisible(false);
-                worker.setVisible(true);
+                rh.setVisible(true);
             }else if(username.equals("") && password.equals("")){
                 JOptionPane.showMessageDialog(null,"Please enter credentials");
             }
@@ -134,26 +191,25 @@ public class ManufactureLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Invalid Credentials");
             }
         }else{
-           // JOptionPane.showMessageDialog(null,"Please Enter Details Properly");
-        } 
-        if(role.equals("ManufactureAdmin")){
+            // JOptionPane.showMessageDialog(null,"Please Enter Details Properly");
+        }
+        if(role.equals("Worker")){
             if(username.equals("root") && password.equals("root")){
-                Manufacturer_head head = new Manufacturer_head();
+                Manufacturer_worker c = new Manufacturer_worker();
                 setVisible(false);
-                head.setVisible(true);
+                c.setVisible(true);
             }else if(username.equals("") && password.equals("")){
                 JOptionPane.showMessageDialog(null,"Please enter credentials");
             }
             else{
                 JOptionPane.showMessageDialog(null,"Invalid Credentials");
             }
-        } 
-         
+        }
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        ManufactureLogin user = new ManufactureLogin();
+        EnterEnterprise user = new EnterEnterprise();
         setVisible(false);
         user.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -205,8 +261,11 @@ public class ManufactureLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JButton loginBtn;
-    private javax.swing.JTextField passwordTxt;
+    private javax.swing.JPasswordField passwordTxt;
     private javax.swing.JComboBox<String> roleTxt;
     private javax.swing.JTextField usernameTxt;
     // End of variables declaration//GEN-END:variables

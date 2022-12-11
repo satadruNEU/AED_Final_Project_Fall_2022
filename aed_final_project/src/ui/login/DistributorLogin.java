@@ -5,7 +5,11 @@
 package ui.login;
 
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import ui.distributor.Distributor_details;
+import ui.distributor.Distributor_head;
+import ui.onboarding.EnterEnterprise;
 
 /**
  *
@@ -29,21 +33,146 @@ public class DistributorLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel3 = new javax.swing.JLabel();
+        usernameTxt = new javax.swing.JTextField();
+        roleTxt = new javax.swing.JComboBox<>();
+        loginBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        passwordTxt = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 500));
+        setMinimumSize(new java.awt.Dimension(800, 500));
+        setPreferredSize(new java.awt.Dimension(800, 500));
+        setResizable(false);
+        setSize(new java.awt.Dimension(800, 500));
+        getContentPane().setLayout(null);
+
+        jLabel3.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        jLabel3.setText("Role:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(500, 260, 25, 15);
+
+        usernameTxt.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        getContentPane().add(usernameTxt);
+        usernameTxt.setBounds(550, 180, 158, 21);
+
+        roleTxt.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        roleTxt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Distributor Admin", "Distributor Head" }));
+        roleTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roleTxtActionPerformed(evt);
+            }
+        });
+        getContentPane().add(roleTxt);
+        roleTxt.setBounds(550, 260, 160, 21);
+
+        loginBtn.setBackground(new java.awt.Color(252, 255, 99));
+        loginBtn.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(51, 51, 51));
+        loginBtn.setText("Login");
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(loginBtn);
+        loginBtn.setBounds(550, 310, 160, 30);
+
+        jButton1.setBackground(new java.awt.Color(255, 128, 101));
+        jButton1.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(30, 30, 80, 30);
+
+        passwordTxt.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        getContentPane().add(passwordTxt);
+        passwordTxt.setBounds(550, 220, 160, 21);
+
+        jLabel4.setFont(new java.awt.Font("Product Sans", 1, 40)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Login");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(330, 40, 110, 60);
+
+        jLabel1.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        jLabel1.setText("Username:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(470, 180, 60, 15);
+
+        jLabel5.setFont(new java.awt.Font("Product Sans", 0, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Distributor");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(330, 10, 100, 50);
+
+        jLabel2.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        jLabel2.setText("Password:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(470, 220, 60, 15);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/illustration3login.png"))); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(60, 120, 350, 270);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void roleTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roleTxtActionPerformed
+
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+        // TODO add your handling code here:
+        String role = roleTxt.getSelectedItem().toString();
+        String username = usernameTxt.getText();
+        String password = passwordTxt.getText();
+
+        if(role.equals("Distributor Admin")){
+            if(username.equals("root") && password.equals("root")){
+                Distributor_head rh = new Distributor_head();
+                setVisible(false);
+                rh.setVisible(true);
+            }else if(username.equals("") && password.equals("")){
+                JOptionPane.showMessageDialog(null,"Please enter credentials");
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Invalid Credentials");
+            }
+        }else{
+            // JOptionPane.showMessageDialog(null,"Please Enter Details Properly");
+        }
+        if(role.equals("Distributor Head")){
+            if(username.equals("root") && password.equals("root")){
+                Distributor_details c = new Distributor_details();
+                setVisible(false);
+                c.setVisible(true);
+            }else if(username.equals("") && password.equals("")){
+                JOptionPane.showMessageDialog(null,"Please enter credentials");
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Invalid Credentials");
+            }
+        }
+    }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        EnterEnterprise user = new EnterEnterprise();
+        setVisible(false);
+        user.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -87,5 +216,16 @@ public class DistributorLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton loginBtn;
+    private javax.swing.JPasswordField passwordTxt;
+    private javax.swing.JComboBox<String> roleTxt;
+    private javax.swing.JTextField usernameTxt;
     // End of variables declaration//GEN-END:variables
 }
