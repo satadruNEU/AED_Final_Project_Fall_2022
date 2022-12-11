@@ -37,7 +37,7 @@ public class DistributorLogin extends javax.swing.JFrame {
         usernameTxt = new javax.swing.JTextField();
         roleTxt = new javax.swing.JComboBox<>();
         loginBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        logoutBtn = new javax.swing.JButton();
         passwordTxt = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -84,17 +84,17 @@ public class DistributorLogin extends javax.swing.JFrame {
         getContentPane().add(loginBtn);
         loginBtn.setBounds(550, 310, 160, 30);
 
-        jButton1.setBackground(new java.awt.Color(255, 128, 101));
-        jButton1.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        logoutBtn.setBackground(new java.awt.Color(255, 128, 101));
+        logoutBtn.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+        logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
+        logoutBtn.setText("Back");
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                logoutBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(30, 30, 80, 30);
+        getContentPane().add(logoutBtn);
+        logoutBtn.setBounds(30, 30, 80, 30);
 
         passwordTxt.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
         getContentPane().add(passwordTxt);
@@ -167,12 +167,12 @@ public class DistributorLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_loginBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
         EnterEnterprise user = new EnterEnterprise();
         setVisible(false);
         user.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_logoutBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,7 +216,6 @@ public class DistributorLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -224,6 +223,7 @@ public class DistributorLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JButton loginBtn;
+    private javax.swing.JButton logoutBtn;
     private javax.swing.JPasswordField passwordTxt;
     private javax.swing.JComboBox<String> roleTxt;
     private javax.swing.JTextField usernameTxt;

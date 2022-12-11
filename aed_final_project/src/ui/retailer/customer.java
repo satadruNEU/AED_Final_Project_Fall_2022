@@ -67,6 +67,8 @@ public class customer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTabbedPane1.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+
         views5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -80,14 +82,27 @@ public class customer extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(views5);
 
+        jLabel1.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
         jLabel1.setText("Customer Name:");
 
+        jLabel2.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
         jLabel2.setText("Customer ID:");
 
+        jLabel3.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
         jLabel3.setText("Contact No:");
 
+        jLabel4.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
         jLabel4.setText("Email ID:");
 
+        cuidTxt.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+
+        cunameTxt.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+
+        cunoTxt.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+
+        cuemailTxt.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
+
+        jButton1.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
         jButton1.setText("VIew");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +110,7 @@ public class customer extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
         jButton2.setText("Create");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +173,7 @@ public class customer extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Customer Details", jPanel2);
@@ -175,6 +191,7 @@ public class customer extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(views);
 
+        ViewBtn.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
         ViewBtn.setText("View Products");
         ViewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
