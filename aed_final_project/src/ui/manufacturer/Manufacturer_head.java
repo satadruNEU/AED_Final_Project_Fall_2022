@@ -686,8 +686,12 @@ String phone_id = "";
             {idTxt.setEditable(false);
             jLabel9.setText("Enter Valid Digits");;
         }
-       else
+        
+        else
         {idTxt.setEditable(true);}
+        
+        
+        
     }//GEN-LAST:event_idTxtKeyPressed
 
     private void priceTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_priceTxtKeyPressed
