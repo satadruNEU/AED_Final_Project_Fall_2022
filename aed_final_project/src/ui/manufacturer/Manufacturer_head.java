@@ -7,7 +7,7 @@ package ui.manufacturer;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import login.userLogin;
+import ui.login.ManufactureLogin;
 
 /**
  *
@@ -552,7 +552,7 @@ String phone_id = "";
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        userLogin user = new userLogin();
+        ManufactureLogin user = new ManufactureLogin();
         setVisible(false);
         user.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

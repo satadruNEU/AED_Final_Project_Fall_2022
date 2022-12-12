@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package login;
+package ui.login;
 
 import javax.swing.JOptionPane;
 import ui.manufacturer.Manufacturer_head;
@@ -12,12 +12,12 @@ import ui.manufacturer.Manufacturer_worker;
  *
  * @author shubh
  */
-public class userLogin extends javax.swing.JFrame {
+public class ManufactureLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form userLogin
      */
-    public userLogin() {
+    public ManufactureLogin() {
         initComponents();
     }
 
@@ -145,7 +145,7 @@ public class userLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        userLogin user = new userLogin();
+        ManufactureLogin user = new ManufactureLogin();
         setVisible(false);
         user.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -167,20 +167,21 @@ public class userLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(userLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManufactureLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(userLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManufactureLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(userLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManufactureLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(userLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManufactureLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new userLogin().setVisible(true);
+                new ManufactureLogin().setVisible(true);
             }
         });
     }
