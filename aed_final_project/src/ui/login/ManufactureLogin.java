@@ -123,22 +123,28 @@ public class ManufactureLogin extends javax.swing.JFrame {
         String password = passwordTxt.getText();
         
          if(role.equals("Worker")){
-            if(username.equals("Shubham") && password.equals("Shubham")){
+            if(username.equals("root") && password.equals("root")){
                 Manufacturer_worker worker = new Manufacturer_worker();
                 setVisible(false);
                 worker.setVisible(true);
-            }else{
+            }else if(username.equals("") && password.equals("")){
+                JOptionPane.showMessageDialog(null,"Please enter credentials");
+            }
+            else{
                 JOptionPane.showMessageDialog(null,"Invalid Credentials");
             }
         }else{
            // JOptionPane.showMessageDialog(null,"Please Enter Details Properly");
         } 
         if(role.equals("ManufactureAdmin")){
-            if(username.equals("Ashish") && password.equals("Ashish")){
+            if(username.equals("root") && password.equals("root")){
                 Manufacturer_head head = new Manufacturer_head();
                 setVisible(false);
                 head.setVisible(true);
-            }else{
+            }else if(username.equals("") && password.equals("")){
+                JOptionPane.showMessageDialog(null,"Please enter credentials");
+            }
+            else{
                 JOptionPane.showMessageDialog(null,"Invalid Credentials");
             }
         } 

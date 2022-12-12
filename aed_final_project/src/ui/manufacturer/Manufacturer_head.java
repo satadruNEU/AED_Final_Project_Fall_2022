@@ -75,7 +75,7 @@ public class Manufacturer_head extends javax.swing.JFrame {
         statusTxt = new javax.swing.JTextField();
         submitBtn = new javax.swing.JButton();
         viewBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        LogoutBtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -134,10 +134,10 @@ public class Manufacturer_head extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Logout");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        LogoutBtn.setText("Logout");
+        LogoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                LogoutBtnActionPerformed(evt);
             }
         });
 
@@ -169,7 +169,7 @@ public class Manufacturer_head extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(jButton1)
+                .addComponent(LogoutBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(viewBtn)
                 .addGap(30, 30, 30))
@@ -182,7 +182,7 @@ public class Manufacturer_head extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewBtn)
-                    .addComponent(jButton1))
+                    .addComponent(LogoutBtn))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -552,12 +552,12 @@ String phone_id = "";
         
     }//GEN-LAST:event_deleteBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void LogoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutBtnActionPerformed
         // TODO add your handling code here:
         ManufactureLogin user = new ManufactureLogin();
         setVisible(false);
         user.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_LogoutBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -602,12 +602,12 @@ String phone_id = "";
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LogoutBtn;
     private javax.swing.JTextField bnameTxt;
     private javax.swing.JTextField brandnameTxt;
     private javax.swing.JButton createBtn;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JTextField idTxt;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
