@@ -4,9 +4,11 @@
  */
 package ui.distributor;
 
+import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
 import javax.swing.table.DefaultTableModel;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -360,6 +362,12 @@ public class Distributor_head extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        try {
+//            product= Font.createFont(Font.TRUETYPE_FONT, new file("Product_Sans_Regular.ttf"));
+            UIManager.setLookAndFeel(new FlatArcDarkOrangeIJTheme());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Distributor_head().setVisible(true);
