@@ -4,6 +4,9 @@
  */
 package ui.retailor;
 
+import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
+import javax.swing.UIManager;
+
 /**
  *
  * @author shubh
@@ -70,6 +73,12 @@ public class Retailor_head extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        try {
+//            product= Font.createFont(Font.TRUETYPE_FONT, new file("Product_Sans_Regular.ttf"));
+            UIManager.setLookAndFeel(new FlatArcDarkOrangeIJTheme());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Retailor_head().setVisible(true);

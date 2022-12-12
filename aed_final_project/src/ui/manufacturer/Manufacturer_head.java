@@ -8,7 +8,9 @@ import java.awt.event.KeyEvent;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import login.userLogin;
+import ui.login.ManufactureLogin;
+import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
+import javax.swing.UIManager;
 
 /**
  *
@@ -61,6 +63,7 @@ public class Manufacturer_head extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
+
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -98,6 +101,7 @@ public class Manufacturer_head extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
 
         jLabel5.setText("Brand Name:");
 
@@ -615,12 +619,12 @@ String phone_id = "";
         
     }//GEN-LAST:event_deleteBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void LogoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutBtnActionPerformed
         // TODO add your handling code here:
-        userLogin user = new userLogin();
+        ManufactureLogin user = new ManufactureLogin();
         setVisible(false);
         user.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_LogoutBtnActionPerformed
 
     private void quantityTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityTxtKeyPressed
         // TODO add your handling code here:
@@ -692,6 +696,12 @@ String phone_id = "";
         //</editor-fold>
 
         /* Create and display the form */
+        try {
+//            product= Font.createFont(Font.TRUETYPE_FONT, new file("Product_Sans_Regular.ttf"));
+            UIManager.setLookAndFeel(new FlatArcDarkOrangeIJTheme());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Manufacturer_head().setVisible(true);
@@ -700,12 +710,12 @@ String phone_id = "";
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LogoutBtn;
     private javax.swing.JTextField bnameTxt;
     private javax.swing.JTextField brandnameTxt;
     private javax.swing.JButton createBtn;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JTextField idTxt;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
