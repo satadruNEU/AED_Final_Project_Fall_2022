@@ -4,6 +4,10 @@
  */
 package model.database;
 
+import com.sun.jdi.connect.spi.Connection;
+import java.sql.DriverManager;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author satad
@@ -11,3 +15,5 @@ package model.database;
 public class ConnectionFactory {
     
 }
+    
+    

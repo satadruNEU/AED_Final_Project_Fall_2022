@@ -74,7 +74,6 @@ public class Distributor_details extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 500));
         setMinimumSize(new java.awt.Dimension(800, 500));
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 500));
@@ -458,10 +457,7 @@ public class Distributor_details extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton logoutBtn;
-    private javax.swing.JButton logoutBtn1;
     private javax.swing.JButton logoutBtn2;
-    private javax.swing.JButton logoutBtn4;
     private javax.swing.JTextField stateTxt;
     private javax.swing.JButton viewBtn;
     private javax.swing.JTable views;
